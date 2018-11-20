@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1m4-6D-MeG">
+                                <rect key="frame" x="32" y="35" width="311" height="29"/>
+                                <segments>
+                                    <segment title="Right"/>
+                                    <segment title="Left"/>
+                                    <segment title="Down"/>
+                                    <segment title="Up"/>
+                                </segments>
+                                <connections>
+                                    <action selector="setRollDirection:" destination="BYZ-38-t0r" eventType="valueChanged" id="WAC-UR-H0y"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hH4-6t-WcC">
+                                <rect key="frame" x="40" y="617" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="M9L-U9-8zT"/>
+                                    <constraint firstAttribute="height" constant="30" id="dud-wa-QUp"/>
+                                </constraints>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="startRoll:" destination="BYZ-38-t0r" eventType="touchDown" id="uFA-jk-mrZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rU-vs-pXl">
+                                <rect key="frame" x="299" y="617" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dZt-c5-5Fj"/>
+                                    <constraint firstAttribute="width" constant="60" id="dvn-O6-VE3"/>
+                                </constraints>
+                                <state key="normal" title="停止"/>
+                                <connections>
+                                    <action selector="stopRoll:" destination="BYZ-38-t0r" eventType="touchDown" id="0TY-Bs-uzf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1rU-vs-pXl" secondAttribute="trailing" constant="16" id="ByE-Mu-96q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1rU-vs-pXl" secondAttribute="bottom" constant="20" id="CcI-ug-cH6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hH4-6t-WcC" secondAttribute="bottom" constant="20" id="Mzk-2d-x8L"/>
+                            <constraint firstItem="1m4-6D-MeG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="OE6-9A-SFe"/>
+                            <constraint firstItem="hH4-6t-WcC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="aD1-df-eL7"/>
+                            <constraint firstItem="1m4-6D-MeG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="kEC-d3-qOJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1m4-6D-MeG" secondAttribute="trailing" constant="32" id="sYm-tJ-ncj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+</document>
