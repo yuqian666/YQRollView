@@ -42,6 +42,11 @@
  */
 @property (nonatomic, assign) NSInteger rollIndex;
 
+/**
+ 是否在动画中
+ */
+@property (nonatomic, assign) BOOL isAnimation;
+
 
 @end
 
@@ -79,7 +84,10 @@
 - (void)setRollDirection:(YQRollViewDirection)rollDirection
 {
     _rollDirection = rollDirection;
-    [self resetBackViewFrame];
+    //动画过程中不去强行改变运动轨迹
+    if (!_isAnimation) {
+        [self resetBackViewFrame];
+    }
 }
 
 
@@ -161,16 +169,20 @@
         return;
     }
     
-    CGPoint startPoint = [self getStartPoint];
+    
     CGPoint targetPoint = [self getTargetPoint];
+    self.isAnimation = true;
     [UIView animateWithDuration:_animationTime animations:^{
         weakSelf.backView1.frame = CGRectMake(targetPoint.x, targetPoint.y, YQ_SelfW, YQ_SelfH);
         weakSelf.backView2.frame = CGRectMake(0, 0, YQ_SelfW, YQ_SelfH);
     }completion:^(BOOL finished) {
+        weakSelf.isAnimation = false;
         weakSelf.rollIndex ++;
         weakSelf.rollIndex = weakSelf.rollIndex%weakSelf.viewArr.count;
         NSInteger willShowIndex = (weakSelf.rollIndex + 1)%weakSelf.viewArr.count;
         //NSLog(@"%d--%d",self.rollIndex,willShowIndex);
+        //此时rollDirection可能已经改变
+        CGPoint startPoint = [self getStartPoint];
         weakSelf.backView1.frame = CGRectMake(startPoint.x, startPoint.y, YQ_SelfW, YQ_SelfH);
         [weakSelf removeAllSubView:weakSelf.backView1];
         [weakSelf.backView1 addSubview:weakSelf.viewArr[willShowIndex]];
